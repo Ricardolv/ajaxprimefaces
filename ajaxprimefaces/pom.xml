@@ -42,5 +42,7 @@
 		<module>processamentoParcial</module>
 		<module>submissaoParcial</module>
 		<module>ajaxStatus</module>
+		<module>password</module>
+		<module>inputTextarea</module>
 	</modules>
 </project>
