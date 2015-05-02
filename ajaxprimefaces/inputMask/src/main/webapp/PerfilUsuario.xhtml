@@ -17,17 +17,21 @@
 			<p:outputLabel value="Nome" for="nome"/>
 			<p:inputText id="nome" required="true" value="#{perfilUsuarioBean.nome}" />
 			
-			<p:outputLabel value="Profissao" for="profissao" />
-			<p:selectOneMenu id="profissao" value="#{perfilUsuarioBean.profissao}" required="true" >
-				<f:selectItem itemLabel="Estudante" itemValue="1"/>
-				<f:selectItem itemLabel="Empresario" itemValue="2"/>
-				<f:selectItem itemLabel="Programador" itemValue="3"/>
-				<f:selectItem itemLabel="Outras" itemValue="4"/>
-			</p:selectOneMenu>
+			<p:outputLabel value="Telefone" for="telefone" />
+			<p:inputMask id="telefone" value="#{perfilUsuarioBean.telefone}" 
+						 mask="(99) 9999-9999" />
+			
+			<p:outputLabel value="Telefone comercial" for="telefoneComercial" />
+			<p:inputMask id="telefoneComercial" value="#{perfilUsuarioBean.telefoneComercial}" 
+						mask="(99) 9999-9999? x9999" />
+				
+			<p:outputLabel value="Matrícula" for="matricula" />
+			<p:inputMask id="matricula" value="#{perfilUsuarioBean.matricula}" 
+						 mask="aaa*-9999"  slotChar="X"/>
 			
 		</p:panelGrid>
 			
-		<p:commandButton value="Atualizar"  action="#{perfilUsuarioBean.atualizarPerfilUsuario}" update="@form"/>
+		<p:commandButton value="Atualizar"  action="#{perfilUsuarioBean.atualizar}" update="@form"/>
 	</h:form>
 
 </h:body>

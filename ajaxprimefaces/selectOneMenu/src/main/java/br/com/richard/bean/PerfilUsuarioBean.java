@@ -28,9 +28,54 @@ public class PerfilUsuarioBean implements Serializable {
 	private String nome;
 	private String profissao;
 	private Interesse interesse;
+	private String estado;
+	private String cidade;
+	
+	private List<String> estados = new ArrayList<String>();
+	private List<String> cidades = new ArrayList<String>();
 
-	public void atualizar() {
+	public PerfilUsuarioBean() {
+		
+		estados.add("MG");
+		estados.add("SP");
+		estados.add("RJ");
+	}
+	
+	public void carregarCidades() {
+		cidades.clear();
+		switch (estado) {
+		case "MG":
+			cidades.add("Uberaba");
+			cidades.add("Belo Horizonte");
+			cidades.add("Santa luzia");
+			break;
+		case "SP":
+			cidades.add("Campinas");
+			cidades.add("Santos");
+			break;
+		case "RJ":
+			cidades.add("Ipanema");
+			cidades.add("Niteroi");
+			break;
+		}
+		
+	}
+
+	public void atualizarPerfilUsuario() {
+		System.out.println("Profissão: " + this.profissao);
+		
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Perfil atualizado!"));
+	}
+	
+	public void atualizarPerfilUsuarioFiltro() {
 		System.out.println("Interesse: " + this.interesse.getDescricao());
+		
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Perfil atualizado!"));
+	}
+	
+	public void atualizarPerfilUsuarioDependente() {
+		System.out.println("Estado: " + this.estado);
+		System.out.println("Cidade: " + this.cidade);
 		
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Perfil atualizado!"));
 	}
@@ -61,5 +106,29 @@ public class PerfilUsuarioBean implements Serializable {
 
 	public List<Interesse> getInteresses() {
 		return INTERESSES;
+	}
+
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+
+	public String getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+
+	public List<String> getEstados() {
+		return estados;
+	}
+
+	public List<String> getCidades() {
+		return cidades;
 	}
 }

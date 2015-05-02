@@ -58,5 +58,9 @@
 		<module>calendar</module>
 		<module>selectOneListbox</module>
 		<module>selectOneMenu</module>
+		<module>selectOneRadio</module>
+		<module>selectManyCheckbox</module>
+		<module>autoComplete</module>
+		<module>inputMask</module>
 	</modules>
 </project>
