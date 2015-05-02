@@ -39,5 +39,6 @@
 	<modules>
 		<module>inputOutputButton</module>
 		<module>ajaxRenderizacaoParcial</module>
+		<module>processamentoParcial</module>
 	</modules>
 </project>
