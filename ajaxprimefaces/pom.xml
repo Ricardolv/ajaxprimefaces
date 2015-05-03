@@ -62,5 +62,7 @@
 		<module>selectManyCheckbox</module>
 		<module>autoComplete</module>
 		<module>inputMask</module>
+		<module>tabView</module>
+		<module>dataTable</module>
 	</modules>
 </project>
