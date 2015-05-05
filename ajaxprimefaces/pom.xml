@@ -64,5 +64,7 @@
 		<module>inputMask</module>
 		<module>tabView</module>
 		<module>dataTable</module>
+		<module>menuBar</module>
+		<module>mensagensGrowl</module>
 	</modules>
 </project>
