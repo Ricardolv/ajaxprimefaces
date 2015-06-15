@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
@@ -31,6 +32,45 @@
 				</h:outputText>
 			</p:column>
 		</p:dataTable>
+		
+		<p:dataTable id="checkboxDT" value="#{funcionariosBean.funcionarios}" var="funcionario" 
+					 rows="10" paginator="true" paginatorPosition="bottom"
+					 rowsPerPageTemplate="10, 20, 30" paginatorAlwaysVisible="false"
+					 selection="#{funcionariosBean.funcionariosSelecionados}" rowKey="#{funcionario.matricula}"
+					 style="margin-top:20px">
+		  	<f:facet name="header">
+         		Checkbox
+     		</f:facet>
+			<p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+		    <p:column headerText="Matrícula" style="text-align: center" width="90">
+			<h:outputText value="#{funcionario.matricula}"/>
+			</p:column>
+			<p:column headerText="Nome">
+				<h:outputText value="#{funcionario.nome}"/>
+			</p:column>
+			<p:column headerText="Data de admissão" width="180" style="text-align: center">
+				<h:outputText value="#{funcionario.dataAdmissao}">
+					<f:convertDateTime pattern="dd/MM/yyyy"/>
+				</h:outputText>
+			</p:column>
+			<p:column headerText="Salário" width="140" style="text-align: right">
+				<h:outputText value="#{funcionario.salario}">
+					<f:convertNumber type="currency" locale="pt_BR"/>
+				</h:outputText>
+			</p:column>
+			 <f:facet name="footer">
+				<p:commandButton process="checkboxDT" update=":frm:multiFuDetail" icon="ui-icon-search" value="View" oncomplete="PF('multiFuDialog').show()"/>			 
+			 </f:facet>
+		</p:dataTable>
+		
+		<p:dialog header="Funcionários selecionados" widgetVar="multiFuDialog" modal="true" showEffect="fade" hideEffect="fade" width="500">
+			<p:outputPanel id="multiFuDetail" style="text-align:center;">
+				<ui:repeat var="f" value="#{funcionariosBean.funcionariosSelecionados}">
+					<h:outputText value="#{f.matricula} - #{f.nome} - #{f.nome}" />
+				</ui:repeat>
+			</p:outputPanel>
+		</p:dialog>
+		
 	</h:form>
 
 </h:body>

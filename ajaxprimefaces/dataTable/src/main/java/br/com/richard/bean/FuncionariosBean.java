@@ -25,6 +25,8 @@ public class FuncionariosBean implements Serializable {
 	
 	private List<Funcionario> funcionarios;
 	
+	private List<Funcionario> funcionariosSelecionados;
+	
 	public FuncionariosBean() {
 		funcionarios = new ArrayList<>();
 		
@@ -65,5 +67,14 @@ public class FuncionariosBean implements Serializable {
 
 	public List<Funcionario> getFuncionarios() {
 		return funcionarios;
+	}
+
+	public List<Funcionario> getFuncionariosSelecionados() {
+		return funcionariosSelecionados;
+	}
+
+	public void setFuncionariosSelecionados(
+			List<Funcionario> funcionariosSelecionados) {
+		this.funcionariosSelecionados = funcionariosSelecionados;
 	}
 }
